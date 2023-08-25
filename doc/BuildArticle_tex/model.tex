@@ -1,0 +1,75 @@
+\section{Model}
+
+%The Citizen-Candidate (Osborne and Slivinski 1996) model of political competition is described in detail.
+Our model adapts the one originally introduced in Osborne and Slivinski (1996). While Besley and Coate (1997) provide a similar model which allows for a small number of agents (a setting which would seem to be easier to implement in a lab), we follow the Osborne and Slivinski approach, as we are interested in large elections, where voting may be assumed to be non-strategic (allowing for strategic voting would introduce additional equilibrium multiplicity which we are trying to avoid). In addition, like in Osborne and Slivinski (1996), we concentrate on the comparison of candidate entry under distinct voting rules.
+
+We consider a society that has to implement a single policy\ $x$ on a
+unidimensional $\left[ 0,100\right] $ continuum. Heterogenous voters have
+single-peaked preferences, with ideal points distributed over the continuum
+according to some distribution $F$ (for the rest of the paper it shall be assumed to be uniform). Our main
+departure from Osborne and Slivinski is in limiting the set of possible
+candidates to a small finite subset of citizens with corresponding ideal points 
+\(Q=\{q_1, ..., q_n\}, q_i \in \left[ 0,100\right]\). 
+
+Potential candidates, or politicians, may choose to
+nominate or not to nominate themselves for the office. As in Osborne and Slivinski (1996) it is assumed that agent preferences are known by everyone and that there is no commitment, so
+that the politicians can only promise that if elected they would implement
+their ideal policies. The rest of the
+voters are assumed to never run for the office, but simply to vote for the
+candidate whose ideal policy is the closest to their own (in experimental
+treatments we shall automate this part of the set-up). 
+
+Hence, the game has $N=\left\{ 1,2,....n\right\} $ politician
+players. Each player $i$ has a 2-point strategy space $S_{i}=\left\{
+0,1\right\} $, where $s_{i}=1$ means the agent nominates him/herself, and $%
+s_{i}=0$ means the agent stays out of the election. Potential candidates consider the cost of participation $c$, the
+possible benefits of being elected or "ego rent" $b$, and the distance between their ideal policy and the final policy implemented. As in Osborne and Slivinsky (1996) we assume that if everybody decides not to enter the resultant outcome is "catastrophic": a large negative payoff $-D$ for everyone. To summarize, individual payoff in this game is given by  \ref{eq:Utility} represent the preferences of citizens:
+
+\begin{equation}
+u_i(x,q_i)=
+\begin{cases}
+-D, & \text{if } s_i=0, \forall i \in Q \\
+-\alpha||x-q_i|| - cs_i + bw_i(s), & \text{otherwise} 
+\end{cases}\label{eq:Utility}
+\end{equation}
+
+where $\alpha$ is a parameter reflecting the relative importance of policy vis-a-vis non-policy payoffs and $w_i$ takes value of $1$ if the agent wins and $0$ otherwise. Notice, that whether a candidate wins depends on the voting system, voter ideal point distribution, and the profile of individual entry decisions $\(s=\{q_1, ..., q_n\})$.
+
+Unlike the politicians, who have a strategic role to play, regular voters in our experiment will becomputerized robots, who always vote sincerely. We assume there are 101 such
+voters, with a single voter having an ideal point at every integer between $
+0 $ and $100$ (we chose to use a discrete voter space in order
+to avoid explaining the notion of a continuous distribution to subjects who were, for the most part, not exposed to calculus or probability theory). The robot voters always vote for a
+nominated candidate whose ideal point is closest to their own (in case $m>1$
+candidates are at the same distance from a given voter, s/he shall randomly
+select a candidate, with every one of the closest candidates having a
+probability $\frac{1}{m}$ of being chosens).
+
+The winner of the election is determined by the voting of a larger society.
+In this paper we consider two voting rules:
+
+\begin{itemize}
+	\item \textbf{Simple Plurality}:
+The candidate who gets most votes wins, with ties resolved randomly, with every one of the leading candidates having equal probability of winning. 
+	
+	\item \textbf{Runoff}:
+	The two candidates with highest votes from a first round are presented for the same set of voters to choose from in the second round, in which the winner is determined as in the plurality rule and ties in both rounds resolved randomly, with equal probability of being chosen among the tied candidates.
+\end{itemize}
+
+Following the bulk of the earlier literature, we shall concentrate on the pure strategy Nash equilibria. An important role in our setting shall be played by the distance between the politician ideal points and the meidan of the voter distribution $m$.  The following
+proposition, which follows from the results of Osborne and Slivinski (1996),
+describes some of the equilibrium possibilities in our setting. It is these
+implications of the model that we shall try to test in the lab.
+
+\begin{proposition}
+	a) If there is a unique politician closest to , then for both voting
+	rules there exists an equilibrium in which he is the only candidate.
+	
+	b) In every two-candidate equilibrium under the plurality rule the
+	candidates are located symmetrically around $m$. Furthermore, such an equilibrium will exist only if there are symmetric politicians located close enough to $m$ , or if the symmetric
+	politicians are the closest ones to $m$.
+	
+	c) If there are exactly two potential candidates closest to $m$, then under
+	the run-off system there exists an equilibrium in which they are the only
+	entrants if only if $2c\leq b$.
+	
+\end{proposition}

@@ -1,0 +1,215 @@
+\chapter{Methodology}
+
+\section{Experimental Design}
+
+In this chapter I present the experimental methodology, the NE (pure and mixed) in each condition, and a general descriptive analysis of data.
+The design and data of the current experiment come from \citeA{Elbittar2009}, and the instruction shown to participants are reported in the appendix.
+
+There are four different games from the combination of two voting systems: plurality rule (PR) and run-off (RO), and two levels of costs: high (\$20) and low (\$5)
+(i.e. $PR\_LC$, $PR\_HC$, $RO\_LC$ and $RO\_HC$). 
+For each game there are three sessions with different participants who were students of various undergraduate programs at ITAM in Mexico City. They played three practice trials at the beginning of each session and at most during 30 effective trials.
+Participants were randomly matched and assigned an ideal point ($Q={20, 30,80}$) each trial. 
+Less trials happen if participants lost all the money given or because they were not a multiple of three and then one or two of them waited until the next trial-match. 
+Each one initiate with $\$140$, this amount increased or decreased through the session according with the payoffs that depend on behavior of others and game's structure. Participants were allowed to continue until they finished a trial with negative balance. 
+%The instructions given to participants can be consulted in the Appendix.
+
+Table \ref{genral_info} summary the sessions' characteristics. 
+As expected, there are more bankruptcy in high cost games (HC). Conditional to this, plurality rule (PR) game have a larger number of bankruptcy participants.
+
+
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: jue., abr. 27, 2017 - 09:18:48 p. m.
+\begin{table}[!htbp] \centering  
+	\begin{tabular}{@{\extracolsep{5pt}} ccccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		 Voting System & Costs & No. Participants & No. Bankrupcy & Session \\ 
+		\hline \\[-1.8ex] 
+		  &  & 19 & 0 & $1$\\ 
+		  & LC & 18 & 0 & $2$\\ 
+		PR &  & 20 & 0 & $3$\\ \cline{2-5}
+		  &  & 15 & 9 & $1$\\ 
+		  & HC & 20 & 13 & $2$\\ 
+		  &  & 23 & 16 & $3$\\ \hline
+		  &  & 26 & 0 & $1$\\ 
+		  & LC & 16 & 0 & $2$\\ 
+		 RO &  & 27 & 2 & $3$\\ \cline{2-5}
+		  &  & 15 & 4 & $1$\\ 
+		  & HC & 15 & 5& $2$\\ 
+		  &  & 15 & 6 & $3$\\ 
+		\hline \\[-1.8ex] 
+		\multicolumn{2}{c}{Total:} & 229 & 55 & 12\\
+		\hline \\[-1.8ex] 
+	\end{tabular}
+		\caption[Experimental sessions]{There were three different sessions by game. Last column shows the number of the participants that lost all the money given.}
+		\label{genral_info}
+\end{table} 
+
+
+\section{Expected Nash Equilibria}
+
+Particular values of the parameters in the utility function and the ideal policies of the citizens are needed in order to calculate an specific NE. 
+Table \ref{params} displays parameter values used in the experiment.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c}
+		%\caption{Parameters used in the Experiment}
+		\hline Parameter & Value(s) \\\hline 
+		$\alpha$ & $0.1$ \\ 
+		$c$ & $\{5,20\}$ \\ 
+		$b$ & $25$ \\ 
+		$D$ & $40$ \\ 
+		$Q$ & $\{20, 30, 80\}$ \\\hline 
+	\end{tabular}\caption[Experimental Parameters]{Parameters used in the current experiment.}\label{params}
+\end{table}
+
+
+The matrices with the payoffs for the four games are in figures \ref{fig_tab:PR_HC} to \ref{fig_tab:RO_LC}.
+They represent the possible action profiles and payoffs for each citizen in order: $s_{20}, s_{30}, s_{80}$. For example, in the figure \ref{fig_tab:PR_HC}, if we look at the first matrix, second row and first column, there are the payoffs: $(20, -1, -6)$, it must be read that player 1 ($q_{20}$) and 2 ($q_{30}$) were not candidates and citizen 3 ($q_{80}$) was alone in the campaign ($s = (0, 0, 1)$). 
+
+
+\begin{figure}[htbp]
+	\vspace{.5cm}
+	\centering
+	\text{$q_{80}$}\\
+	\text{Not Entry ---------------------------------------------- Entry}
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry    \\
+			N  &    $-40, -40, -40$      & $-1, 5, -5$  \\
+			E &  $5, -1, -6$ & $-21, 5, -5$\\
+			\\
+		\end{game}
+	\end{minipage}% This must go next to `\end{minipage}`
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry     \\
+			N  &    $-6, -5, 5$      & $-1, 5, -25$  \\
+			E &  $-10.5, -3, -10.5$ & $-26, -25, 5$\\
+			\\
+		\end{game}
+	\end{minipage}
+	\vspace{.5cm}
+	\caption[PR HC game]{PR\_HC normal form representation.}
+	\label{fig_tab:PR_HC}
+\end{figure}
+
+\begin{figure}[htbp]
+	\vspace{.5cm}
+	\centering
+	\text{$q_{80}$}\\
+	\text{Not Entry ---------------------------------------------- Entry}
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry    \\
+			N  &    $-40, -40, -40$      & $-1, 5, -5$  \\
+			E &  $5, -1, -6$ & $-21, 5, -5$\\
+			\\
+		\end{game}
+	\end{minipage}% This must go next to `\end{minipage}`
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry     \\
+			N  &    $-6, -5, 5$      & $-1, 5, -25$  \\
+			E &  $-10.5, -3, -10.5$ & $-21, 5, -25$\\
+			\\
+		\end{game}
+	\end{minipage}
+	\vspace{.5cm}
+	\caption[RO HC game]{RO\_HC normal form representation.}
+	\label{fig_tab:RO_HC}
+\end{figure}
+
+\begin{figure}[htbp]
+	\vspace{.5cm}
+	\centering
+	\text{$q_{80}$}\\
+	\text{Not Entry ---------------------------------------------- Entry}
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry    \\
+			N  &    $-40, -40, -40$      & $-1, 20, -5$  \\
+			E &  $20, -1, -6$ & $-6, 20, -5$\\
+			\\
+		\end{game}
+	\end{minipage}% This must go next to `\end{minipage}`
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry     \\
+			N  &    $-6, -5, 20$      & $-1, 20, -10$  \\
+			E &  $4.5, -3, 4.5$ & $-11, -10, 20$\\
+			\\
+		\end{game}
+	\end{minipage}
+	\vspace{.5cm}
+	\caption[PR LC game]{PR\_LC normal form representation.}
+	\label{fig_tab:PR_LC}
+\end{figure}
+
+\begin{figure}[htbp]
+	\vspace{.5cm}
+	\centering
+	\text{$q_{80}$}\\
+	\text{Not Entry ---------------------------------------------- Entry}
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry    \\
+			N  &    $-40, -40, -40$      & $-1, 20, -5$  \\
+			E &  $20, -1, -6$ & $-6, 20, -5$\\
+			\\
+		\end{game}
+	\end{minipage}% This must go next to `\end{minipage}`
+	\begin{minipage}{.5\textwidth}
+		\begin{game}{2}{2}[$q_{20}$][$q_{30}$]
+			&  Not Entry     &  Entry     \\
+			N  &    $-6, -5, 20$      & $-1, 20, -10$  \\
+			E &  $4.5, -3, 4.5$ & $-6, 20, -10$\\
+			\\
+		\end{game}
+	\end{minipage}
+	\vspace{.5cm}
+	\caption[RO LC game]{RO\_LC normal form representation.}
+	\label{fig_tab:RO_LC}
+\end{figure}
+
+It is important to mention that, in this case -with only three participants-, payoffs are equal between voting rules, except in the case when all citizen decide to participate. In such a case, PR makes $q_{80}$ the winner, and RO system award $q_{30}$.
+
+In order to calculate NE, I used the Gambit program \cite{McKelvey2014}. I report these Pure and Mixed equilibria in the next sub sections. This software search for the solutions of a  non linear equations system when calculating mixed strategy equilibria. 
+
+\subsection{Pure Strategy Equilibria}
+
+In the literature, it is common just to consider de Pure Nash Equilibria and I will refer here to them as strict NE (SNE) because it is the case that NE definition apply with strict inequality. 
+Table \ref{NE} reports those equilibria in each game.
+
+Note that $q_{30}$ campaigning alone is always an equilibrium, and that the only game with more than one SNE is plurality rule with low cost. It is the case because, as expected-utility-maximizers, $q_{20}$ and $q_{80}$ are dispose to tie while expected benefits from wining overcome the cost of entry.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c c}
+		\hline Sets of SNE	 & Plurality Rule 		& Run-off \\\hline 
+		High Cost (20) & $\{(0,1,0)\}$ & $\{(0,1,0)\}$ \\ 
+		Low Cost (5) & $\{(0,1,0),(1,0,1)\}$ &  $\{(0,1,0)\}$\\\hline 
+	\end{tabular}\caption[Nash Equilibria]{Strict Nash Equilibria profiles for each game (($s_{20}, s_{30}, s_{80}$) with 0=Not Entry, 1=Entry). }\label{NE}
+\end{table}
+
+\subsection{Mixed Strategy Equilibria}
+
+In the original model, only SNE are considered. It seems a reasonable approach if we consider to implement error in the agents' decisions. \citeA{Young1998} demonstrated that stable equilibria along a dynamic setting are pure SNE in the one-shot setting. Nevertheless it is possible that there were not SNE. 
+%In this I report the mixed strategy equilirbria (MSE).
+ 
+With the current parameter values, there are no MSE in the Run-off games. Plurality Rule system has one and two MSE for low and high cost respectively. Table \ref{MSE} shows these MSE. 
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c c c}
+		\hline
+		MSE in Plurality Rule & \multicolumn{3}{c}{Ideal Points} \\\hline 
+		Costs 			& 20 & 30 & 80 \\\hline 
+		High Cost (20) 	& 1 & 0.3103 & 0.2143 \\ 
+		& 0.9091 & 0 & 0.9091 \\\hline 
+		Low Cost (5) & 0.7812 & 0.5122 & 1 \\\hline 
+	\end{tabular}\caption[Nash Equilibria]{Mixed Strategies Equilibria. Each cell shows the probability to enter.}\label{MSE}
+\end{table}
+
+%In this type of games there are many 

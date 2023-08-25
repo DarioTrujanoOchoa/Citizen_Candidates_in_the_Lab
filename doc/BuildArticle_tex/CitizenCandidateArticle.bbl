@@ -1,0 +1,242 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Besley%
+}{%
+Besley%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+Besley2007}
+\APACinsertmetastar {%
+Besley2007}%
+\begin{APACrefauthors}%
+Besley, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The New Political Economy}} {{The New Political
+  Economy}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Economic Journal}{117}{524}{F570--F587}.
+\newblock
+\begin{APACrefURL} \url{http://www.jstor.org/stable/4625573} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cadigan%
+}{%
+Cadigan%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+Cadigan2005}
+\APACinsertmetastar {%
+Cadigan2005}%
+\begin{APACrefauthors}%
+Cadigan, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Citizen Candidate Model : An Experimental
+  Analysis}} {{The Citizen Candidate Model : An Experimental Analysis}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Public Choice}{}{123}{197--216}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s11127-005-0262-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Camerer%
+}{%
+Camerer%
+}{%
+{\protect \APACyear {2003}}%
+}]{%
+Camerer2003a}
+\APACinsertmetastar {%
+Camerer2003a}%
+\begin{APACrefauthors}%
+Camerer, C\BPBI F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2003}.
+\newblock
+\APACrefbtitle {{Behavioral Game Theory: Experiments in Strategic Interaction}}
+  {{Behavioral Game Theory: Experiments in Strategic Interaction}}.
+\newblock
+\APACaddressPublisher{}{Princeton University Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Elbittar%
+\ \BBA {} Gomberg%
+}{%
+Elbittar%
+\ \BBA {} Gomberg%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+Elbittar2009}
+\APACinsertmetastar {%
+Elbittar2009}%
+\begin{APACrefauthors}%
+Elbittar, A.%
+\BCBT {}\ \BBA {} Gomberg, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{An Experimental Study of the Citizen-Candidate Model}}
+  {{An Experimental Study of the Citizen-Candidate Model}}.{\BBCQ}
+\newblock
+\BIn{} E.~Aragones, C.~Bevia, H.~Llavador\BCBL {}\ \BBA {} N.~Schofield\
+  (\BEDS), \APACrefbtitle {The political economy of democracy} {The political
+  economy of democracy}\ (\BPGS\ 31--46).
+\newblock
+\APACaddressPublisher{}{Fundaci{\'{o}}n BBVA}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+G{\"{a}}chter%
+}{%
+G{\"{a}}chter%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Gachter2004}
+\APACinsertmetastar {%
+Gachter2004}%
+\begin{APACrefauthors}%
+G{\"{a}}chter.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Behavioral Game Theory}} {{Behavioral Game
+  Theory}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Hanbook of Judment and Desition Making} {Hanbook of
+  judment and desition making}\ (\BPGS\ 485--503).
+\newblock
+\begin{APACrefDOI} \doi{10.1002/9780470752937.ch24} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Goeree%
+, Holt%
+\BCBL {}\ \BBA {} Palfrey%
+}{%
+Goeree%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Goeree2016}
+\APACinsertmetastar {%
+Goeree2016}%
+\begin{APACrefauthors}%
+Goeree, J\BPBI K.%
+, Holt, C\BPBI A.%
+\BCBL {}\ \BBA {} Palfrey, T\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {{Quantal Response Equilibrium: A Stochastic Theory of Games}}
+  {{Quantal Response Equilibrium: A Stochastic Theory of Games}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McKelvey%
+\ \BBA {} Palfrey%
+}{%
+McKelvey%
+\ \BBA {} Palfrey%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+McKelvey1995}
+\APACinsertmetastar {%
+McKelvey1995}%
+\begin{APACrefauthors}%
+McKelvey, R\BPBI D.%
+\BCBT {}\ \BBA {} Palfrey, T\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Quantal Response Equilibria for Normal Form Games}}
+  {{Quantal Response Equilibria for Normal Form Games}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Games and Economic Behavior}{10}{1}{6--38}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1006/game.1995.1023}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1006/game.1995.1023} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Osborne%
+\ \BBA {} Slivinski%
+}{%
+Osborne%
+\ \BBA {} Slivinski%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+Osborne1996}
+\APACinsertmetastar {%
+Osborne1996}%
+\begin{APACrefauthors}%
+Osborne, M\BPBI J.%
+\BCBT {}\ \BBA {} Slivinski, A\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A model of political competition with
+  citizen-candidates}} {{A model of political competition with
+  citizen-candidates}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quarterly Journal of Economics}{111}{February}{65--96}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Palfrey%
+}{%
+Palfrey%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+Palfrey2009}
+\APACinsertmetastar {%
+Palfrey2009}%
+\begin{APACrefauthors}%
+Palfrey, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Laboratory experiments in political economy}}
+  {{Laboratory experiments in political economy}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Annual Review of Political Science}{12}{111}{379--388}.
+\newblock
+\begin{APACrefURL}
+  \url{http://www.annualreviews.org/doi/abs/10.1146/annurev.polisci.12.091007.122139}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

@@ -1,0 +1,291 @@
+---
+title: "Logistic Regression Citizen-Candidate"
+author: "Dario Trujano-Ochoa"
+date: "December 2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE}
+# import data ###########################################################################
+
+rm(list = ls())
+library(pacman)
+p_load(dplyr)
+p_load(lme4)
+p_load(gtools)
+
+setwd('..')
+getwd()
+source("src/QRE_functions_2.R")
+source("src/VotingRules.R")
+source("src/functions_CitCand.R")
+
+# data from Analysis.R: 
+load("results/DataFromAnalysis.RData")
+q = c(20, 30, 80)  # ideal points used in the experiment (they must be put in order)
+Q = rbind(q, c(30, 50, 70), c(30, 50, 80)) # location for different treatments
+
+# Data ##############################################################################
+
+# two letter treatments data:
+second_data <- raw_data %>% 
+  mutate(HighCost = Juego=="S"|Juego=="U",
+         Participant = as.factor(paste(Juego, Sesion*100 + id_usuario)),
+          RunOff = Juego=="T"|Juego=="U",
+          Bankrupcy_dum = balance<0,
+          Period_dum = num_periodo>14,
+         earlyperiod = num_periodo <= 8
+          ) %>% 
+  filter(!(Treatment %in% c("PLCA","PLCS")))
+
+# four-letter treatments:
+first_data <- raw_data %>% 
+  mutate(HighCost = Juego=="S"|Juego=="U",
+         Participant = as.factor(paste(Juego, Sesion*100 + id_usuario)),
+          RunOff = Juego=="T"|Juego=="U",
+          Bankrupcy_dum = balance<0,
+          Period_dum = num_periodo>14,
+         earlyperiod = num_periodo <= 8
+          ) %>% 
+  filter((Treatment %in% c("PLCA","PLCS")))
+
+# Al treatments, for running relative postion regressions
+rel_position_data <- raw_data %>% 
+  mutate(HighCost = Juego=="S"|Juego=="U",
+         Participant = as.factor(paste(Juego, Sesion*100 + id_usuario)),
+          RunOff = Juego=="T"|Juego=="U",
+          Bankrupcy_dum = balance<0,
+          Period_dum = num_periodo>14,
+         earlyperiod = num_periodo <= 8,
+         Treatment = factor(Treatment,ordered = F)
+          )
+
+```
+
+
+```{r, include=FALSE}
+# Regression #######################################################################################
+# I ran a regression for the behavior of each position
+
+# two-letter treatments: #########################################################################
+logit_models_game <- list()
+second_logit_models_RE <- list()
+for(i in 1:length(q)){
+  q_data <- second_data[second_data$punto_ideal==q[i],]
+  logit_models_game[[i]] <- glm(se_postula ~ HighCost + RunOff + Period_dum +Bankrupcy_dum, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  #sequita la bancarota porque es variable de jugador y ya se captura por FE (same logic para considerar participants)
+  second_logit_models_RE[[i]] <- glmer(se_postula ~ HighCost + RunOff + Period_dum + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+# interaction ################################################################################
+second_logit_models_RE_interaction <- list()
+for(i in 1:length(q)){
+  q_data <- second_data[second_data$punto_ideal==q[i],]
+  second_logit_models_RE_interaction[[i]] <- 
+    glmer(se_postula ~ HighCost*RunOff + Period_dum + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+# four-letter treatments: #############################################################################
+# PLCS
+logit_models_game <- list()
+PLCS_logit_models_RE <- list()
+for(i in 1:length(q)){
+  q_data <- first_data[first_data$punto_ideal==Q[2,i],] # symmetric
+  logit_models_game[[i]] <- glm(se_postula ~ earlyperiod + Bankrupcy_dum, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  #sequita la bancarota porque es variable de jugador y ya se captura por FE (same logic para considerar participants)
+  PLCS_logit_models_RE[[i]] <- glmer(se_postula ~ earlyperiod + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+#PLCA
+logit_models_game <- list()
+PLCA_logit_models_RE <- list()
+for(i in 1:length(q)){
+  q_data <- first_data[first_data$punto_ideal==Q[3,i],] # asymmetric
+  logit_models_game[[i]] <- glm(se_postula ~ earlyperiod + Bankrupcy_dum, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  #sequita la bancarota porque es variable de jugador y ya se captura por FE (same logic para considerar participants)
+  PLCA_logit_models_RE[[i]] <- glmer(se_postula ~ earlyperiod + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+```
+
+```{r, include=FALSE}
+# Analysis including interaction and first 15 trials
+# Ony for the two-letter treatments
+
+# only the first 15 trials ###################################################################
+second_logit_models_RE_FirstTrials <- list()
+for(i in 1:length(q)){
+  q_data <- second_data[second_data$punto_ideal==q[i]&second_data$num_periodo<=15,]
+  second_logit_models_RE_FirstTrials[[i]] <- 
+    glmer(se_postula ~ HighCost + RunOff + earlyperiod + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+# only the first 15 trials + interaction ###################################################################
+second_logit_models_RE_FirstTrials_interaction <- list()
+for(i in 1:length(q)){
+  q_data <- second_data[second_data$punto_ideal==q[i]&second_data$num_periodo<=15,]
+  second_logit_models_RE_FirstTrials_interaction[[i]] <- 
+    glmer(se_postula ~ HighCost*RunOff + earlyperiod + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+```
+
+# Regressions by variables in the games
+
+I ran a random effects logit regression considering the treatments: PL, PH, RL, RH. Since they share the same positions (20, 30, 80) they are comparable and the regressions reflect the effect of the variables that change between the treatments. For the other two treatments the regression can only include the comparisson with early periods since they chare the same parameters and only defer in the positions they are holding.
+
+In table 1, we can observe that the interaction effect between cost and voting rule is not significative, which means that the effect of the cost and voting rule could be independent. In table two, I present the same regression but considering only the first 15 trials in table 2.
+
+In table 3, we observe that there is no effect of the behavior before and after the 8th trial, and only the constant is significative.
+
+
+```{r, results= 'asis',echo=FALSE}
+
+# two-letter treatments #################################################################
+# main-interaction regression
+stargazer::stargazer(second_logit_models_RE,
+                     second_logit_models_RE_interaction, 
+                     column.labels = as.character(c(q,q)) ,
+                     header = FALSE,title = "Logit regressions for treatments: PL, PH, RL, RH")
+# first trials  interaction regression
+stargazer::stargazer(second_logit_models_RE_FirstTrials,
+                     second_logit_models_RE_FirstTrials_interaction,
+                     column.labels = as.character(c(q,q)) ,
+                     header = FALSE,title = "Logit regressions for treatments: PL, PH, RL, RH, consideering only the first 15 trials.")
+
+# four-letter treatments #################################################################
+stargazer::stargazer(PLCS_logit_models_RE, 
+                     PLCA_logit_models_RE, 
+                     column.labels = as.character(c(Q[2,], Q[3,])), 
+                     header = FALSE,title = "Logit regressions for treatments: PLCS, PLCA")
+
+```
+
+# Regressions by relative positions
+
+
+
+```{r, include=FALSE}
+
+Positions <- c("Left", "Center", "Right")
+logit_models_position <- list()
+second_logit_position_RE <- list()
+for(i in 1:3){
+  q_data <- rel_position_data[rel_position_data$Position==Positions[i],]
+  logit_models_position[[i]] <- glm(se_postula ~ Treatment, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  # random effects
+  second_logit_position_RE[[i]] <- glmer(se_postula ~  Treatment + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+```
+
+
+
+```{r,  results= 'asis',echo=FALSE}
+# four-letter treatments #################################################################
+stargazer::stargazer(second_logit_position_RE,
+                     column.labels = Positions, 
+                     header = FALSE,title = "Logit regressions for relative positions")
+```
+
+# PLCS and PLCA regression
+
+
+
+```{r, include=FALSE}
+
+Positions <- c("Left", "Center", "Right")
+logit_models_position <- list()
+second_logit_position_RE <- list()
+
+# rel_position_data_4letters <- rel_position_data %>% 
+#   filter(Juego %in% c("A","B")) %>% 
+#   mutate(t_order = paste(Treatment,treatment_code,sep = "_"))
+
+for(i in 1:3){
+  q_data <- rel_position_data %>% filter(Position==Positions[i],Treatment %in% c("PLCS","PLCA")) #rel_position_data[rel_position_data$Position==Positions[i],]
+  logit_models_position[[i]] <- glm(se_postula ~ Treatment+treatment_code, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  # random effects
+  second_logit_position_RE[[i]] <- glmer(se_postula ~  Treatment + treatment_code + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+```
+
+
+
+```{r,  results= 'asis',echo=FALSE}
+# four-letter treatments #################################################################
+stargazer::stargazer(second_logit_position_RE,
+                     column.labels = Positions, 
+                     header = FALSE,title = "Logit regressions for relative positions")
+```
+
+
+
+# Regression 2 letters
+
+
+```{r, include=FALSE}
+
+Positions <- c("Left", "Center", "Right")
+logit_models_position <- list()
+second_logit_position_RE <- list()
+
+# rel_position_data_4letters <- rel_position_data %>% 
+#   filter(Juego %in% c("A","B")) %>% 
+#   mutate(t_order = paste(Treatment,treatment_code,sep = "_"))
+
+for(i in 1:3){
+  q_data <- rel_position_data %>% filter(Position==Positions[i],!(Treatment %in% c("PLCS","PLCA"))) #rel_position_data[rel_position_data$Position==Positions[i],]
+  logit_models_position[[i]] <- glm(se_postula ~ HighCost+RunOff*Period_dum, 
+                                family = binomial(link = 'logit'),
+                                data = q_data)
+  # random effects
+  second_logit_position_RE[[i]] <- glmer(se_postula ~  HighCost + RunOff + Period_dum + (1|id_global), 
+                                family = binomial(link = 'logit'),
+                                data=q_data)
+}
+
+second_logit_position_RE
+
+```
+
+
+
+```{r,  results= 'asis',echo=FALSE}
+# four-letter treatments #################################################################
+stargazer::stargazer(second_logit_position_RE,
+                     column.labels = Positions, 
+                     header = FALSE,title = "Logit regressions for relative positions")
+```

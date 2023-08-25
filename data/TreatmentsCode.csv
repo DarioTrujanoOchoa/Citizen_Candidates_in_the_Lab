@@ -1,0 +1,9 @@
+IdealPoints,CodeInDataBase,MeaningfulName,ShortName,Cost,System,VotingRule,Left,Center,Right
+"20,30,80",R,low cost plurality,PL,5,Plurality,PR,20,30,80
+"20,30,80",S,hc plurality,PH,20,Plurality,PR,20,30,80
+"20,30,80",T,lc runoff,RL,5,Runoff,RO,20,30,80
+"20,30,80",U,hc runoff,RH,20,Runoff,RO,20,30,80
+"30,50,70",,lc plurality (center-symmetric),PLCS,5,Plurality,PR,30,50,70
+"30,50,80",,lc plurality (center-asymmetric),PLCA,5,Plurality,PR,30,50,80
+,A,,PLCS/PLCA,6,Plurality,PR,,,
+,B,,PLCA/PLCS,7,Plurality,PR,,,
